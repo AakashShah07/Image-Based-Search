@@ -2,6 +2,12 @@
 
 This is a full-stack image search application that allows users to search for images using the Unsplash API. Users can authenticate using their Google, GitHub, or Facebook accounts. The application keeps a history of user searches and also displays top searches.
 
+
+![User Dashboard](https://i.ibb.co/v6k7W57J/Screenshot-from-2025-11-04-02-21-13.png)
+![Home Page](https://i.ibb.co/mrBGSJHt/Screenshot-from-2025-11-04-02-18-46.png)
+![Search Results](https://i.ibb.co/fdRF5wqt/Screenshot-from-2025-11-04-02-18-54.png)
+![Login Page](https://i.ibb.co/WW7jfZ1v/Screenshot-from-2025-11-04-02-19-01.png)
+
 ## Tech Stack
 
 ### Frontend

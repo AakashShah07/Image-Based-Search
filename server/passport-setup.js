@@ -45,7 +45,6 @@ passport.use(new FacebookStrategy({
   upsertOAuthUser(profile, 'facebook', cb);
 }));
 
-// no sessions used for simplicity — we'll issue JWT after login
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser((id, done) => {
   User.findById(id).then(u => done(null, u)).catch(err => done(err));

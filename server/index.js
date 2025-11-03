@@ -19,10 +19,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 .then(()=>console.log('Mongo connected'))
 .catch(e=>console.error(e));
 
-// ----- Auth routes (issue JWT on success) -----
 function issueJwtAndRedirect(res, user) {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-  // frontend route to receive token and store it: e.g. http://localhost:3000/auth/success?token=...
   res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/auth/success?token=${token}`);
 }
 
@@ -36,12 +34,11 @@ app.get('/auth/github/callback', passport.authenticate('github', { session: fals
   issueJwtAndRedirect(res, req.user);
 });
 
-// app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-// app.get('/auth/facebook/callback', passport.authenticate('facebook', { session: false }), (req, res) => {
-//   issueJwtAndRedirect(res, req.user);
-// });
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { session: false }), (req, res) => {
+  issueJwtAndRedirect(res, req.user);
+});
 
-// ----- Middleware to protect API endpoints -----
 function authMiddleware(req, res, next) {
   const auth = req.headers.authorization;
   if (!auth) return res.status(401).json({ message: 'Missing auth' });
@@ -55,7 +52,6 @@ function authMiddleware(req, res, next) {
   });
 }
 
-// ----- POST /api/search -----
 app.post('/api/search', authMiddleware, async (req, res) => {
   try {
     const { term } = req.body;
@@ -86,9 +82,7 @@ app.post('/api/search', authMiddleware, async (req, res) => {
   }
 });
 
-// ----- GET /api/top-searches -----
 app.get('/api/top-searches', authMiddleware, async (req, res) => {
-  // aggregate top 5 terms
   const top = await Search.aggregate([
     { $group: { _id: '$term', count: { $sum: 1 } } },
     { $sort: { count: -1 } },
@@ -97,7 +91,6 @@ app.get('/api/top-searches', authMiddleware, async (req, res) => {
   res.json(top.map(t => ({ term: t._id, count: t.count })));
 });
 
-// ----- GET /api/history -----
 app.get('/api/history', authMiddleware, async (req, res) => {
   const records = await Search.find({ userId: req.userId }).sort({ timestamp: -1 }).limit(100);
   res.json(records.map(r => ({ term: r.term, timestamp: r.timestamp })));

@@ -1,0 +1,22 @@
+API Endpoints (require authentication with a JWT token):
+
+   1. Search for Images:
+
+      curl -X POST "http://localhost:4081/api/search" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer <YOUR_JWT_TOKEN>" \
+        -d '{"term": "nature"}'
+      Replace `<YOUR_JWT_TOKEN>` with a valid JWT obtained after a successful OAuth login.
+
+
+   2. Get Top Search Terms:
+
+        curl -X GET "http://localhost:4081/api/top-searches" \
+          -H "Authorization: Bearer <YOUR_JWT_TOKEN>"
+      Replace `<YOUR_JWT_TOKEN>` with a valid JWT obtained after a successful OAuth login.
+
+   3. Get User Search History:
+
+        curl -X GET "http://localhost:4081/api/history" \
+          -H "Authorization: Bearer <YOUR_JWT_TOKEN>"
+      Replace `<YOUR_JWT_TOKEN>` with a valid JWT obtained after a successful OAuth login.

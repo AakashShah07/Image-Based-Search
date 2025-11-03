@@ -68,8 +68,8 @@ export default function ImageSearchPage() {
       console.log("Search Response:", res.data);
 
       setImages(res.data.images);
-      fetchTop();
-      fetchHistory();
+      // fetchTop();
+      // fetchHistory();
       setSelected(new Set());
     } catch (error) {
       console.error('Search error:', error);
@@ -217,6 +217,8 @@ export default function ImageSearchPage() {
               </h2>
               <div className="flex overflow-x-auto space-x-2 pb-2 scrollbar-hide">
                 {topSearches.map((t, index) => (
+
+                  
                   <motion.button
                     key={t.term}
                     initial={{ opacity: 0, x: -20 }}

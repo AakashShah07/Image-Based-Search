@@ -3,10 +3,26 @@
 This is a full-stack image search application that allows users to search for images using the Unsplash API. Users can authenticate using their Google, GitHub, or Facebook accounts. The application keeps a history of user searches and also displays top searches.
 
 
-![User Dashboard](https://i.ibb.co/v6k7W57J/Screenshot-from-2025-11-04-02-21-13.png)
-![Home Page](https://i.ibb.co/mrBGSJHt/Screenshot-from-2025-11-04-02-18-46.png)
-![Search Results](https://i.ibb.co/fdRF5wqt/Screenshot-from-2025-11-04-02-18-54.png)
-![Login Page](https://i.ibb.co/WW7jfZ1v/Screenshot-from-2025-11-04-02-19-01.png)
+## 📸 Screenshots
+
+<p align="center">
+  <a href="https://ibb.co/S4BhgThK">
+    <img src="https://i.ibb.co/0RrgLNgf/Screenshot-from-2025-11-04-02-21-13.png" alt="Login Page" width="45%">
+  </a>
+  <a href="https://ibb.co/Z6v7x5Cz">
+    <img src="https://i.ibb.co/RptdcfWT/Screenshot-from-2025-11-04-02-19-01.png" alt="Dashboard" width="45%">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://ibb.co/F4v3MTmJ">
+    <img src="https://i.ibb.co/4RytGrKM/Screenshot-from-2025-11-04-02-18-54.png" alt="Search Page" width="45%">
+  </a>
+  <a href="https://ibb.co/DPbtL47k">
+    <img src="https://github.com/AakashShah07/PyTest/blob/master/Screenshot%20from%202025-11-04%2002-18-46.png" alt="History Page" width="45%">
+  </a>
+</p>
+
 
 ## Tech Stack
 
